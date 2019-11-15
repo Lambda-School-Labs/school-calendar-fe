@@ -9,6 +9,8 @@ import * as Yup from "yup"
 import { makeStyles } from "@material-ui/core/styles"
 import { CssBaseline } from "@material-ui/core"
 import desktopCalendarImg from "../../assets/images/desktop_calendar.jpg"
+
+import ReactGA from 'react-ga'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -20,6 +22,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const Registration = ({ history }) => {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   const {
     currentUser,
     isLoading,
@@ -88,6 +91,10 @@ const Registration = ({ history }) => {
               onSubmit={(values, actions) => {
                 signUpUser(values)
                 actions.resetForm()
+                ReactGA.event({
+                  category: 'Register',
+                  action: 'New User Signed Up'
+                });
               }}
               render={formikProps => (
                 <RegistrationForm

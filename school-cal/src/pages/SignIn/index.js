@@ -8,6 +8,7 @@ import { AuthContext } from "../../contexts/auth/authState"
 import { Formik } from "formik"
 import * as Yup from "yup"
 import desktopCalendarImg from "../../assets/images/desktop_calendar.jpg"
+import ReactGA from 'react-ga'
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -19,6 +20,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const SignIn = ({ history }) => {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   const {
     currentUser,
     isLoading,
@@ -58,6 +60,10 @@ const SignIn = ({ history }) => {
             onSubmit={(values, actions) => {
               signInWithUserIdAndPassword(values)
               actions.resetForm()
+              ReactGA.event({
+                category: 'Sign In',
+                action: 'Existing User Signed In'
+              });
             }}
             render={formikProps => (
               <AdminLoginForm

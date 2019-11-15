@@ -96,6 +96,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const AdminDashBoard = ({ history }) => {
+  ReactGA.pageview(window.location.pathname + window.location.search);
   const { currentUser, signOut } = useContext(AuthContext)
   const [isAddEventOpen, setAddEvent] = useState(false)
   const [open, setOpen] = React.useState(false);
