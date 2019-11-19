@@ -40,6 +40,7 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft"
 import ChevronRightIcon from "@material-ui/icons/ChevronRight"
 import EmptyPerson from "../../assets/images/emptyperson.png"
 import AddUsers from "../addUsers/AddUsers"
+import AddSubscribers from "../addUsers/addSubscriber"
 import '../../components/AdminDashboard/adminDash.css'
 
 import clsx from "clsx"
@@ -104,6 +105,7 @@ const useStyles = makeStyles(theme => ({
 
 const SideBar = (props) => {
     const [isAddEventOpen, setAddEvent] = useState(false)
+    const [isAddSubscriberOpen, setAddSubscribers] = useState(false)
     const [isAddUserOpen, setAddUsers] = useState(false)
     const [calendar, setCalendar] = useState({ id: "" })
     const [calendars, setCalendars] = useState([])
@@ -173,17 +175,27 @@ const SideBar = (props) => {
                 </ListItemIcon>
                 <ListItemText primary={"Add Users"} />
               </ListItem>
+              <ListItem
+                button
+                className={classes.listItem}
+                onClick={() => setAddSubscribers(true)}>
+                <ListItemIcon>
+                  <AddIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Add Subscribers"} />
+              </ListItem>
               
             </List>
-            <List>
+            {/* <List>
               <TwilioMessage/>
-            </List>
+            </List> */}
 
           </div>
         </div>
       </div>
       <AddEvent handleClose={() => setAddEvent(false)} open={isAddEventOpen} />
       <AddUsers handleClose={() => setAddUsers(false)} open={isAddUserOpen} />
+      <AddSubscribers handleClose={() => setAddSubscribers(false)} open={isAddSubscriberOpen} />
     </div>
   )
 
