@@ -13,11 +13,12 @@ import moment from "moment"
 import FullCalendar from "@fullcalendar/react"
 import dayGridPlugin from "@fullcalendar/daygrid"
 import timeGridPlugin from "@fullcalendar/timegrid"
-import interactionPlugin, { Draggable } from "@fullcalendar/interaction"
+import interactionPlugin from "@fullcalendar/interaction"
+import listPlugin from "@fullcalendar/list"
+//fullcal styles
 import "@fullcalendar/core/main.css"
 import "@fullcalendar/daygrid/main.css"
 import "@fullcalendar/timegrid/main.css"
-import axios from "axios"
 
 const useStyles = makeStyles(theme => ({
   headerContainer: {
@@ -145,9 +146,12 @@ const Calendar = props => {
       </Grid>
       <FullCalendar
         defaultView="dayGridMonth"
-        plugins={[dayGridPlugin, interactionPlugin]}
-        events={events}
-        // eventReceive={receive()}
+        plugins={[dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin]}
+        header={{
+          left: "prev,next today ",
+          center: "title",
+          right: "dayGridMonth,timeGridWeek,timeGridDay",
+        }}
         eventClick={handleEventClick}
         dateClick={handleDateClick}
         selectable={true}
