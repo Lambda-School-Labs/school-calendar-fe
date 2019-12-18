@@ -42,13 +42,11 @@ function Marketing() {
             <div style={{marginLeft:"10%",marginTop:"20%", overflow:"hidden"}}>
                 <img src={CalPic}  className="marketing-img"/>
             </div>
-
-         
          </div>
          <div className="market-card-cont" style={{background:"white", marginTop:"80px", display:"flex", flexDirection: "column", flexWrap:"wrap" ,height:"40rem"}}>
              <div className="market-card" style= {{marginLeft: "10px"}}>
                  <SmartphoneIcon style = {{width:"100px" , height:"100px" , borderRadius: "50%" , border: "2px solid black" , padding: "40px"}}/>
-                 <h2>Schedule Events Fast</h2>
+                 <h2>Schedule Events Fast</h2> 
                  <p style={{fontWeight:"500"}}>At Mataka we respect your time. Our design is conduvtive to the fastest way of scheduling events in masse.</p>
              </div>
              <div className="market-card">
