@@ -1,50 +1,59 @@
 {
-	"name": "school-calendar-fe",
-	"version": "0.1.0",
-	"private": true,
-	"dependencies": {
-		"@material-ui/core": "^4.9.1",
-		"axios": "^0.19.2",
-		"bootstrap": "^4.4.1",
-		"dayjs": "^1.8.20",
-		"dotenv": "^8.2.0",
-		"gapi-script": "^1.0.1",
-		"googleapis": "47.0.0",
-		"moment": "^2.24.0",
-		"react": "^16.12.0",
-		"react-dom": "^16.12.0",
-		"react-hook-form": "^4.8.2",
-		"react-router-dom": "^5.1.2",
-		"react-scripts": "3.3.1",
-		"reactstrap": "^8.4.1"
-	},
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"coverage": "npm run test -- --coverage"
-	},
-	"eslintConfig": {
-		"extends": "react-app"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
-	},
-	"devDependencies": {
-		"@testing-library/jest-dom": "^4.2.4",
-		"@testing-library/react": "^9.4.0",
-		"@testing-library/react-hooks": "^3.2.1",
-		"@testing-library/user-event": "^7.1.2",
-		"react-test-renderer": "^16.12.0"
-	}
+  "name": "d8picker-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test": "jest --coverage",
+    "test:badges": "jest-coverage-badges"
+  },
+  "dependencies": {
+    "@chakra-ui/core": "^0.5.2",
+    "@emotion/core": "^10.0.27",
+    "@emotion/styled": "^10.0.27",
+    "axios": "^0.19.2",
+    "connect-mongo": "^3.2.0",
+    "dayjs": "^1.8.20",
+    "dotenv": "^8.2.0",
+    "emotion-theming": "^10.0.27",
+    "googleapis": "^47.0.0",
+    "isomorphic-unfetch": "^3.0.0",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.9.0",
+    "next": "9.2.1",
+    "next-connect": "^0.6.0",
+    "next-cookies": "^2.0.3",
+    "next-session": "^2.2.0",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-ga": "^2.7.0",
+    "react-spring": "^9.0.0-beta.34"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.1.1",
+    "@testing-library/react": "^9.4.0",
+    "babel-jest": "^25.1.0",
+    "jest": "^25.1.0",
+    "prettier": "^1.19.1"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "**/*.{js,jsx,ts,tsx}",
+      "!**/node_modules/**"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/.next/"
+    ],
+    "transform": {
+      "^.+\\.(js|jsx|ts|tsx)$": "<rootDir>/node_modules/babel-jest"
+    }
+  }
 }
