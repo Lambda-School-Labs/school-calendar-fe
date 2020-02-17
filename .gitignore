@@ -20,14 +20,16 @@
 .env.production.local
 
 npm-debug.log*
-package-lock.json
-yarn.lock
 yarn-debug.log*
 yarn-error.log*
 
-./src/credentials.json
+# next.js build output
+.next
 
-.vscode
+# package-lock
+package-lock.json
+yarn.lock
 
-./src/credentials
-# hello
+.now
+
+/.vscode
