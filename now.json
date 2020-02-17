@@ -1,0 +1,13 @@
+{
+  "build": {
+    "env": {
+      "MONGO_URI": "@mongo_uri",
+      "GOOGLE_CLIENT_ID": "306906741839-tgubaqsopkf52q3r1hjnuvnlkomtleop.apps.googleusercontent.com",
+      "GOOGLE_CLIENT_SECRET": "@google_client_secret",
+      "GOOGLE_REDIRECT_URI": "https://d8picker-app.now.sh/api/auth/success",
+      "POST_LOGOUT_REDIRECT_URI": "https://d8picker-app.now.sh",
+      "BASE_URL": "https://d8picker-app.now.sh",
+      "SESSION_COOKIE_SECRET": "@session_cookie_secret"
+    }
+  }
+}
