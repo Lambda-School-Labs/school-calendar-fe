@@ -75,7 +75,7 @@ const Calendar = ({ events, data }) => {
               <span style={style} key={i}>
                 {events &&
                   events.map(e => {
-                    {
+                    
                       const event =
                         i + 1 === dayjs(e && e.start.dateTime).date() &&
                         currentMonth === dayjs(e && e.start.dateTime).month() &&
@@ -84,7 +84,7 @@ const Calendar = ({ events, data }) => {
                           : null;
                       return event;
                     }
-                  })}
+                  )}
 
                 {/* {event && event.start.dateTime} */}
                 {i + 1}
