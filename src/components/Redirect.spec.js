@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Redirect from './Splash';
+import Redirect from './Redirect';
 
 
 describe('Redirect', () => {
