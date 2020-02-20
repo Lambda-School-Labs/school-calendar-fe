@@ -1,38 +1,30 @@
 {
-	"name": "school-calendar-fe",
-	"version": "0.1.0",
-	"private": true,
-	"scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject",
-		"coverage": "npm run test -- --coverage"
-	},
-	"jest": {
-		"snapshotSerializers": [
+"name": "school-calendar-fe",
+"version": "0.1.0",
+"private": true,
+"scripts": {
+	"start": "react-scripts start",
+	"build": "react-scripts build",
+	"test": "react-scripts test",
+	"eject": "react-scripts eject",
+	"coverage": "npm run test -- --coverage"
+},
+"jest": {
+	"snapshotSerializers": [
 
-		  "enzyme-to-json/serializer"
-		],
-		"collectCoverageFrom": [
-		"**/*.{js,jsx}",
-		"!**/node_modules/**",
-      	"!**/vendor/**",
-      	"!**/__tests__/**"
-
-			
-		],
-		"testEnvironment": "node",
-		"setupFiles": [
-		  "dotenv/config"
-		],
-		"collectCoverageFrom": [
-		  "**/*.{js,jsx}",
-		  "!**/node_modules/**",
-		  "!**/vendor/**"
-
-		]
-	  },									
+		"enzyme-to-json/serializer"
+	],
+	"collectCoverageFrom": [
+	"**/*.{js,jsx}",
+	"!**/node_modules/**",
+	"!**/vendor/**",
+	"!**/__tests__/**"
+	],
+	"testEnvironment": "node",
+	"setupFiles": [
+		"dotenv/config"
+	]
+	},									
   "eslintConfig": {
     "extends": "react-app"
   },
