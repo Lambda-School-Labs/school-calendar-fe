@@ -1,9 +1,12 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+
 import Splash from './components/Splash/';
 import Home from './components/Home/';
 // import PrivateRoute from "./components/PrivateRoute";
-import Redirect from './components/Redirect';
+import Authenticate from './components/Authenticate';
+import Events from './components/Events';
+
 import './App.css';
 
 function App() {
@@ -16,11 +19,14 @@ function App() {
       {/* <PrivateRoute path="/home">
         <Home />
       </PrivateRoute> */}
-      <Route path="/redirect">
-        <Redirect />
+      <Route path="/authenticate/google">
+        <Authenticate />
       </Route>
       <Route path="/home">
         <Home />
+      </Route>
+      <Route path="/events">
+        <Events />
       </Route>
     </div>
   );
