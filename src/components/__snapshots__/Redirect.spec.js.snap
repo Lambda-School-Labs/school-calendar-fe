@@ -1,9 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Redirect should render correctly 1`] = `
-<div
-  className="splash"
->
-  <Login />
+<div>
+  <div>
+    ...redirecting
+  </div>
+  <Redirect
+    to="/home"
+  />
 </div>
 `;
