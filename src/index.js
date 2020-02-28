@@ -3,19 +3,16 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, withRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import { AuthProvider } from './contexts/AuthContext';
-import {StateProvider} from './contexts/Context'
+import { StateProvider } from './contexts/Context';
 import * as serviceWorker from './serviceWorker';
 
 const AppWithRouter = withRouter(App);
 
 ReactDOM.render(
   <StateProvider>
-    <AuthProvider>
-      <Router>
-        <AppWithRouter />
-      </Router>
-    </AuthProvider>
+    <Router>
+      <AppWithRouter />
+    </Router>
   </StateProvider>,
   document.getElementById('root')
 );

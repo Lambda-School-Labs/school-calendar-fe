@@ -7,14 +7,14 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
-import { axiosWithAuth } from '../../utils/axiosWithAuth';
-import { axiosByGid } from '../../utils/axiosByGid';
+// import { axiosWithAuth } from '../../utils/axiosWithAuth';
+// import { axiosByGid } from '../../utils/axiosByGid';
 import { useTemplate } from '../../hooks/useTemplate';
 
 const Home = ({ profile, eventsApi }) => {
   const {
     selected,
-    setSelected,
+    // setSelected,
     templateList,
     getTemplateList
   } = useTemplate();
