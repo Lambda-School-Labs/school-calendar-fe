@@ -34,7 +34,7 @@ function App() {
   });
 
   const {
-    isLoading,
+    // isLoading,
     isAuthenticated,
     currentUser,
     onSignIn,
@@ -47,13 +47,13 @@ function App() {
       : localStorage.removeItem('isAuthenticated');
   }, [isAuthenticated]);
 
-  if (isLoading) {
-    return <div>Initializing...</div>;
-  }
+  // if (isLoading) {
+  //   return <div>Initializing...</div>;
+  // }
 
-  if (!isAuthenticated) {
-    return <button onClick={onSignIn}>Signin with Google</button>;
-  }
+  // if (!isAuthenticated) {
+  //   return <button onClick={onSignIn}>Signin with Google</button>;
+  // }
 
   return (
     <div className="App">
@@ -67,6 +67,9 @@ function App() {
         <Authenticate />
       </Route>
 
+      {/* <Route path="/home">
+        <Home profile={currentUser} eventsApi={eventsApi} />
+      </Route> */}
       <PrivateRoute path="/home">
         <Home profile={currentUser} eventsApi={eventsApi} />
       </PrivateRoute>

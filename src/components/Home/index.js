@@ -59,13 +59,22 @@ const Home = ({ profile, eventsApi }) => {
       console.log(error);
     }
   };
+useEffect(() => {
+  if(profile){
+
+    console.log('home index', profile)
+  localStorage.setItem('googleId', profile.googleId);
+
+  }
+},[profile])
 
   // Invoke function to load Events from Google Calendar API
-  useEffect(() => {
-    loadEvents();
-    profile && localStorage.setItem('googleId', profile.googleId);
-    getTemplateList();
-  }, []);
+  // useEffect(() => {
+  //   loadEvents();
+  //   profile && localStorage.setItem('googleId', profile.googleId);
+  //   console.log('home index', profile)
+  //   getTemplateList();
+  // }, []);
 
   const applyTemplate = (summary, description, starttime, endtime) => {
     const EventList = selected.map(e => ({

@@ -47,7 +47,7 @@ function useGapi({
           setCurrentUser(profile);
           // setCurrentUser(auth.currentUser.get().getBasicProfile());
           setGapi(window.gapi);
-          gapi && setIsLoading(false);
+          // gapi && setIsLoading(false);
         } catch (error) {
           console.log(error);
         }
@@ -85,7 +85,7 @@ function useGapi({
   };
 
   return {
-    isLoading,
+    // isLoading,
     currentUser,
     isAuthenticated,
     onSignIn,

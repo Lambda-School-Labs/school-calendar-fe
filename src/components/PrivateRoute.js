@@ -6,7 +6,7 @@ const PrivateRoute = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={({ location }) =>
-        localStorage.getItem('isAuthenticated') ? (
+        localStorage.getItem('googleId') ? (
           children
         ) : (
           <Redirect
