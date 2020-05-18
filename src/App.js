@@ -9,6 +9,7 @@ import PrivateRoute from './components/PrivateRoute';
 import Welcome from './routes/Welcome';
 import Dashboard from './routes/Dashboard';
 import Loading from './components/Loading';
+import { RecoilRoot } from 'recoil'
 
 // function initializeAnalytics() {
 //   ReactGA.initialize('UA-157827018-1');
@@ -31,9 +32,11 @@ function App() {
       <Route exact path="/">
         <Welcome />
       </Route>
-      <PrivateRoute path="/:id/dashboard">
-        <Dashboard />
-      </PrivateRoute>
+      <RecoilRoot>
+        <PrivateRoute path="/:id/dashboard">
+          <Dashboard />
+        </PrivateRoute>
+      </RecoilRoot>
     </Stack>
   );
 }

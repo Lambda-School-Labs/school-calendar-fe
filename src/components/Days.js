@@ -4,9 +4,13 @@ import Cell from './Cell';
 import EventsIndicator from './EventsIndicator';
 import useDate from '../hooks/useDate';
 
+import { useRecoilValue } from "recoil";
+import { templateFormOpen } from '../utils/atoms'
+
+
 export const DisabledDays = ({ days }) => {
   return (
-    <>
+    <div>
       {[...Array(days).keys()].map(i => (
         <Cell
           className="calendar-days-item faded"
@@ -17,11 +21,11 @@ export const DisabledDays = ({ days }) => {
           <Box backgroundColor="gray.100" h="100%" />
         </Cell>
       ))}
-    </>
+    </div>
   );
 };
 
-const Days = ({ events, date, selected, setSelected, templateFormOpen }) => {
+const Days = ({ events, date, selected, setSelected }) => {
   const {
     daysInMonth,
     currentDay,
@@ -30,6 +34,8 @@ const Days = ({ events, date, selected, setSelected, templateFormOpen }) => {
     weekDayOfFirstDoM,
     weekDayOfLastDoM
   } = useDate(date);
+
+  const templateForm = useRecoilValue(templateFormOpen)
   return (
     <>
       <DisabledDays days={weekDayOfFirstDoM} />
@@ -56,7 +62,7 @@ const Days = ({ events, date, selected, setSelected, templateFormOpen }) => {
             .format('YYYY-MM')
             .concat(`-${day < 10 ? 0 : ''}${day}`);
 
-          templateFormOpen
+          templateForm
             ? selected.includes(newdate)
               ? setSelected(selected.filter(date => date !== newdate))
               : setSelected(selected.concat(newdate))

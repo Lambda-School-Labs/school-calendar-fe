@@ -14,6 +14,7 @@ import { useAuth } from '../contexts/auth';
 import Calendar from '../components/Calendar';
 import Template from '../components/Template';
 
+//loads templates from backend
 const getTemplateList = async ({ googleId }) => {
   try {
     const response = await axios.get(
@@ -25,6 +26,7 @@ const getTemplateList = async ({ googleId }) => {
   }
 };
 
+//adds to DB through backend
 const addTemplate = async (data, { googleId }) => {
   const template = { ...data, googleId };
   try {
@@ -38,6 +40,7 @@ const addTemplate = async (data, { googleId }) => {
   }
 };
 
+//remove from DB
 const deleteTemplate = async id => {
   try {
     const response = await axios.delete(
@@ -52,7 +55,6 @@ const deleteTemplate = async id => {
 const Dashboard = () => {
   const { googleApi, api } = useAuth();
   const [templateList, setTemplateList] = useState([]);
-  const [templateFormOpen, setTemplateFormOpen] = useState(false);
   const [formOpen, setFormOpen] = useState(false);
   const [selected, setSelected] = useState([]);
 
@@ -61,13 +63,17 @@ const Dashboard = () => {
 
   const { currentUser, handleSignOut } = googleApi;
 
-  // Submit for template form
+  // Submit  template form
   const onSubmit = async formData => {
     const template = await addTemplate(formData, currentUser);
+    console.log('template:', template)
+    console.log('templatelist:', templateList)
     setTemplateList(prevTemplates => [...prevTemplates, template]);
+    console.log('templatelist:', templateList)
+
     setFormOpen(false);
   };
-
+  //on load
   useEffect(() => {
     (async () => {
       const templates = await getTemplateList(currentUser);
@@ -80,7 +86,7 @@ const Dashboard = () => {
     const templates = templateList.filter(template => template._id !== id);
     setTemplateList(templates);
   };
-
+  //addr
   const applyTemplate = (summary, description, starttime, endtime) => {
     const eventList = selected.map(e => ({
       end: { dateTime: `${e}T${endtime}:00-08:00` },
@@ -159,8 +165,6 @@ const Dashboard = () => {
                   summary={t.summary}
                   description={t.description}
                   selected={selected}
-                  templateFormOpen={templateFormOpen}
-                  setTemplateFormOpen={setTemplateFormOpen}
                   applyTemplate={applyTemplate}
                   handleDelete={handleDelete}
                 />
@@ -209,8 +213,6 @@ const Dashboard = () => {
             api={api}
             selected={selected}
             setSelected={setSelected}
-            templateFormOpen={templateFormOpen}
-            setTemplateFormOpen={setTemplateFormOpen}
           />
         </Box>
       </Grid>

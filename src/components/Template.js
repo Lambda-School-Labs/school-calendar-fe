@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Flex,
   ButtonGroup,
@@ -6,7 +6,8 @@ import {
   Heading,
   IconButton
 } from '@chakra-ui/core';
-
+import { useRecoilState } from 'recoil'
+import { templateFormOpen } from '../utils/atoms'
 const Template = ({
   id,
   starttime,
@@ -14,13 +15,14 @@ const Template = ({
   summary,
   description,
   selected,
-  templateFormOpen,
-  setTemplateFormOpen,
   applyTemplate,
   handleDelete
 }) => {
+  const [templateForm, setTemplateForm] = useRecoilState(templateFormOpen);
+
+
   const openTemplate = () => {
-    setTemplateFormOpen(!templateFormOpen);
+    setTemplateForm(!templateForm);
   };
 
   return (
@@ -46,12 +48,8 @@ const Template = ({
         </ButtonGroup>
       </Flex>
 
-      {templateFormOpen && (
-        <button
-          onClick={() =>
-            applyTemplate(summary, description, starttime, endtime, selected)
-          }
-        >
+      {templateForm && (
+        <button onClick={() => applyTemplate(summary, description, starttime, endtime, selected)}>
           Apply Template
         </button>
       )}
