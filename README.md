@@ -95,7 +95,7 @@ any changes made to previously-scheduled events.
 
 #### Component composition
 
--   [Overview of component tree](https://app.lucidchart.com/documents/view/a4ece8db-5341-47c1-923e-bb0e05734e1c/YGcM5DNywbTK)
+<img src="https://i.imgur.com/GTpd3qX.png" />
 
 #### Front end deployed to `Netlify`
 
